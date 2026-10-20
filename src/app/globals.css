@@ -8,6 +8,10 @@
   /* Brand Palette */
   --color-primary-navy: #12345A;
   --color-deep-navy: #0B1F3A;
+  --color-royal-navy: #0A1D37;
+  --color-gold-primary: #C5A059;
+  --color-gold-light: #E8D099;
+  --color-gold-dark: #9A7736;
   --color-white: #FFFFFF;
   --color-soft-blue-bg: #F3F7FC;
   --color-muted-blue: #6C91B8;
@@ -29,7 +33,8 @@
   --color-error-border: #FECDCA;
 
   /* Typography */
-  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-serif: 'Cinzel', 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-family-devanagari: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing Scale */
@@ -377,29 +382,134 @@ p {
   width: 100%;
 }
 
+.clinic-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
 .clinic-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 13px;
   user-select: none;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.clinic-logo:hover {
+  opacity: 0.96;
+}
+
+.clinic-logo__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(11, 31, 58, 0.15));
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.clinic-logo:hover .clinic-logo__icon-wrap {
+  transform: translateY(-1px) scale(1.02);
+  filter: drop-shadow(0 4px 10px rgba(11, 31, 58, 0.22));
 }
 
 .clinic-logo__text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  line-height: 1;
 }
 
-.clinic-logo__name {
+.clinic-logo__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.28em;
+  font-family: var(--font-family-serif);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.clinic-logo__name-primary {
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.06em;
+}
+
+.clinic-logo__name-secondary {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.95;
 }
 
 .clinic-logo__sub {
-  font-size: 0.68rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-base);
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.clinic-logo__sub-pip {
+  color: var(--color-gold-primary);
+  font-size: 0.58rem;
+  line-height: 1;
+}
+
+/* Sizing variations */
+.clinic-logo--sm .clinic-logo__title {
+  font-size: 1.08rem;
+}
+.clinic-logo--sm .clinic-logo__sub {
+  font-size: 0.56rem;
+  letter-spacing: 0.17em;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.clinic-logo--md .clinic-logo__title {
+  font-size: 1.28rem;
+}
+.clinic-logo--md .clinic-logo__sub {
+  font-size: 0.64rem;
+}
+
+.clinic-logo--lg .clinic-logo__title {
+  font-size: 1.62rem;
+}
+.clinic-logo--lg .clinic-logo__sub {
+  font-size: 0.74rem;
+}
+
+/* Theme color variations */
+.clinic-logo--dark .clinic-logo__name-primary {
+  color: var(--color-deep-navy);
+}
+.clinic-logo--dark .clinic-logo__name-secondary {
+  color: var(--color-primary-navy);
+}
+.clinic-logo--dark .clinic-logo__sub {
+  color: var(--color-secondary-text);
+}
+
+.clinic-logo--light .clinic-logo__name-primary {
+  color: var(--color-white);
+}
+.clinic-logo--light .clinic-logo__name-secondary {
+  color: var(--color-gold-light);
+}
+.clinic-logo--light .clinic-logo__sub {
+  color: #B5CCE5;
+}
+.clinic-logo--light .clinic-logo__sub-pip {
+  color: var(--color-gold-light);
 }
 
 .text-primary {
